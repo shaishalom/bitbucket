@@ -17,7 +17,6 @@ import com.example.demo.controller.CustomerController;
 import com.example.demo.controller.CustomerNotFoundException;
 import com.example.demo.dto.GenderEnum;
 import com.example.demo.entity.Customer;
-import com.example.demo.repo.BranchRepositoryCustomImpl;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -60,6 +59,7 @@ public class CustomerTests {
 		
 			customer = customerController.getCustomer(CUSTOMER_ID_CREATED);
 			assertNull(customer);
+			logger.info("finish testCreateUpdateDeleteCustomerById ");
 
 
 	}

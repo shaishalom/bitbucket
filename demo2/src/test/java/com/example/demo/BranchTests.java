@@ -13,13 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.example.demo.controller.AccountController;
-import com.example.demo.controller.AccountNotFoundException;
 import com.example.demo.controller.BankController;
 import com.example.demo.controller.BankNotFoundException;
 import com.example.demo.controller.BranchController;
 import com.example.demo.controller.BranchNotFoundException;
-import com.example.demo.entity.Account;
 import com.example.demo.entity.Bank;
 import com.example.demo.entity.Branch;
 
@@ -67,6 +64,8 @@ public class BranchTests {
 		
 			branch = branchController.getBranch(BRANCH_ID_CREATED);
 			assertNull(branch);
+			
+			logger.info("finish testCreateUpdateDeleteBranchById ");
 
 
 	}

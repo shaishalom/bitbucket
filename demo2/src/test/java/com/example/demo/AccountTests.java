@@ -65,6 +65,7 @@ public class AccountTests {
 			account = accountController.getAccount(ACCOUNT_ID_CREATED);
 			assertNull(account);
 
+			logger.info("finish testCreateUpdateDeleteAccountById ");
 
 	}
 

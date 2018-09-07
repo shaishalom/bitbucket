@@ -1,17 +1,18 @@
 package com.example.demo.repo;
 
+import java.util.List;
+import java.util.Optional;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-import java.util.List;
-import java.util.Optional;
 
-import com.example.demo.controller.AccountController;
 import com.example.demo.entity.Account;
 
 @Repository
@@ -31,18 +32,11 @@ public class AccountRepositoryCustomImpl implements AccountRepositoryCustom {
 		Query query = entityManager.createNativeQuery("SELECT * FROM ACCOUNT  " +
                 "WHERE account_Id = ?", Account.class);
         query.setParameter(1, accountId );
-        List<Account> accounts = query.getResultList();
+        @SuppressWarnings("unchecked")
+		List<Account> accounts = query.getResultList();
        	return Optional.of(accounts.get(0));
         
 	}
 	
-	private void simulateSlowService() {
-        try {
-            long time = 3000L;
-            Thread.sleep(time);
-        } catch (InterruptedException e) {
-            throw new IllegalStateException(e);
-        }
-    }
 
 }

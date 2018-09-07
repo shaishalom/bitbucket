@@ -13,7 +13,6 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.entity.Account;
 import com.example.demo.entity.Customer;
 
 @Repository
@@ -34,19 +33,12 @@ public class CustomerRepositoryCustomImpl implements CustomerRepositoryCustom {
 		Query query = entityManager.createNativeQuery("SELECT * FROM CUSTOMER  " +
                 "WHERE customer_Id = ?", Customer.class);
         query.setParameter(1, customerId );
+        @SuppressWarnings("unchecked")
         List<Customer> customers = query.getResultList();
         
        	return Optional.of(customers.get(0));
         
 	}
 	
-	private void simulateSlowService() {
-        try {
-            long time = 3000L;
-            Thread.sleep(time);
-        } catch (InterruptedException e) {
-            throw new IllegalStateException(e);
-        }
-    }
 
 }

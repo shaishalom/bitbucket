@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.example.demo.entity.Branch;
 import com.example.demo.entity.Customer;
 import com.example.demo.repo.CustomerRepository;
  
